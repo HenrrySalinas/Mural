@@ -1,3 +1,21 @@
+## Wall System
+## backend specifications
+
+Agregar el url's de los servicio como:
+```
+'use strict';
+
+angular.module('sysMural')
+	.factory('personaResource', function($resource){
+		return $resource("http://quejascore.xyz/api/v0.1/persona/:id",{id:"@id"});
+	})
+	.factory('postResource', function($resource){
+		return $resource("http://quejascore.xyz/api/v0.1/post/:id",{id:"@id"} );
+	});
+```
+en services.js 
+
+## Frameworks used for backend
 ## Laravel PHP Framework
 
 [![Build Status](https://travis-ci.org/laravel/framework.svg)](https://travis-ci.org/laravel/framework)
