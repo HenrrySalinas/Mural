@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html  lang="es">
+<head>
+	<meta charset="UTF-8">
+	<title>Mural</title>
+		
+		<link rel="stylesheet" type="text/css" href="assets/css/materialize.min.css">
+	</style>
+</head>
+<body ng-app="sysMural">
+
+<nav>
+	<div class="nav-wrapper  brown lighten-1">
+		<a href="#" class="brand-logo">Logo</a>
+		<ul id="nav-mobile" class="right hide-on-med-and-down">
+		<li><a href="/">Quejas</a></li>
+		<li><a href="#/crearPost">Anotar Quejas</a></li>
+		<li><a href="#/crearPersona">Registrar Persona</a></li>
+		
+		</ul>
+	</div>
+</nav>
+        
+		
+		<div ng-view class="container">
+		</div>
+		
+	
+	<script type="text/javascript" src="components/angular.min.js"></script>
+	<script type="text/javascript" src="components/angular-route.min.js"></script>
+	<script type="text/javascript" src="components/angular-resource.min.js"></script>
+	
+	
+
+	<script type="text/javascript" src="scripts/router.js"></script>
+	
+	<script type="text/javascript" src="scripts/services/services.js"></script>
+	<script type="text/javascript" src="scripts/controllers/quejasController.js"></script>
+
+	<script type="text/javascript" src="assets/js/jquery-2.1.1.min.js"></script>
+	<script type="text/javascript" src="assets/js/materialize.min.js"></script>
+</body>
+</html>

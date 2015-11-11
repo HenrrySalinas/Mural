@@ -1,0 +1,18 @@
+<div class="card-panel">
+<h3>{{FormTitle}}</h3>
+	<form ng-submit="crearPersona()">
+		<div class="input-field">
+			<input type="text" name="nombre" ng-model="Persona.nombre" value="" placeholder="Nombre">
+		</div>
+		<div class="input-field">
+			<input type="text" name="paterno" ng-model="Persona.paterno" value="" placeholder="Apellido Paterno">
+		</div>
+		<div class="input-field">
+			<input type="text" name="materno" ng-model="Persona.materno" value="" placeholder="Apellido Materno">
+		</div>
+		<div class="input-field">
+			<input type="email" name="email" ng-model="Persona.email" value="" placeholder="Email">
+		</div>
+		<button type="submit" class="btn waves-effect blue darken-3">{{btnFormCreate}}</button>
+	</form>
+</div>
