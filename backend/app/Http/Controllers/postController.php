@@ -7,7 +7,9 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 
-
+use Illuminate\Routing\Route;
+use Session;
+use Validator;
 use App\Post;
 
 class postController extends Controller
@@ -17,6 +19,10 @@ class postController extends Controller
     public function __construct()
     {
         $this->middleware('cors');
+        $this->beforeFilter('@find',['only'=>['show','update','destroy']]);
+    }
+    public function find (Route $route){
+       $this->post=Post::find($route->getParameter('post'));
     }
     /**
      * Display a listing of the resource.
@@ -61,7 +67,7 @@ class postController extends Controller
      */
     public function show($id)
     {
-        //
+        return response()->json($this->post);
     }
 
     /**
@@ -85,7 +91,11 @@ class postController extends Controller
     public function update(Request $request, $id)
     {
         //$model = App\Flight::findOrFail(1); //busca o retorna error
-
+        $this->post->fill($request->all());
+        $this->post->save();
+        return response()->json([
+                "success"=>true,
+            ]);
     }
 
     /**
@@ -96,6 +106,9 @@ class postController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $this->post->delete();
+        return response()->json([
+            "success"=>true,
+            ]);
     }
 }

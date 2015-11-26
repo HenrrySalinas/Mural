@@ -17,6 +17,10 @@ class personaController extends Controller
 {
     public function __construct(){
         $this->middleware('cors');
+        $this->beforeFilter('@find',['only'=>['show','update','destroy']]);
+    }
+    public function find (Route $route){
+       $this->persona=Persona::find($route->getParameter('persona'));
     }
     /**
      * Display a listing of the resource.
@@ -61,7 +65,7 @@ class personaController extends Controller
      */
     public function show($id)
     {
-        //
+        return response()->json($this->persona);
     }
 
     /**
@@ -84,7 +88,11 @@ class personaController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->persona->fill($request->all());
+        $this->persona->save();
+        return response()->json([
+                "success"=>true
+            ]);
     }
 
     /**
@@ -95,6 +103,9 @@ class personaController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $this->persona->delete();
+        return response()->json([
+                "success"=>true
+            ]);
     }
 }
