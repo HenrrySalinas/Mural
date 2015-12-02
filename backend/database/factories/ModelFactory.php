@@ -35,8 +35,14 @@ $factory->define(App\Post::class, function (Faker\Generator $faker) {
         'id_persona' => factory(App\Persona::class)->create()->id,// este metodo funciona pero hay que ordenar el orden de ejecucion
         //'id_persona' =>App\Persona::all()->random()->id,
         //'id_persona' =>100,
-        'descripcion' => $faker->sentence(50),
-        'contenido' => $faker->paragraph(400),
+        'descripcion' => $faker->sentence(20),
+        'contenido' => $faker->paragraph(100),
         
+    ];
+});
+$factory->define(App\Comentario::class, function (Faker\Generator $faker) {
+    return [
+        'id_post' => factory(App\Post::class)->create()->id,// este metodo funciona pero hay que ordenar el orden de ejecucion
+        'contenido' => $faker->sentence(35),
     ];
 });

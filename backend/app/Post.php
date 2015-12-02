@@ -20,7 +20,14 @@ class Post extends BaseModel
     	return $this->belongsTo('App\Persona','id_persona');
     	//return $this->belongsTo('App\MODELNAME', 'foreign_key', 'other_key');
     }
-
+    public function comentario()
+    {
+        return $this->hasMany('App\Comentario','id_post');
+        /*
+        return $this->hasMany('App\MODELNAME', 'foreign_key');
+        return $this->hasMany('App\MODELNAME', 'foreign_key', 'local_key');
+        */
+    }
     
 }
 

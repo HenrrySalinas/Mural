@@ -16,6 +16,7 @@ Route::get('/', function () {
 });
 
 Route::Group(array('prefix'=>'api/v0.1'),function(){
-	Route::Resource('persona','personaController',['only'=>['index','store','update','destroy']]);
-	Route::Resource('post','postController',['only'=>['index','store','update','destroy']]);	
+	Route::Resource('persona','personaController',['only'=>['index','store','update','destroy','show']]);
+	Route::Resource('post','postController',['only'=>['index','store','update','destroy','show']]);	
+	Route::Resource('comentario','comentarioController',['only'=>['index','store','update','destroy','show']]);	
 });
