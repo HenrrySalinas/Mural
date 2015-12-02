@@ -31,7 +31,7 @@ class postController extends Controller
      */
     public function index()
     {
-        $posts=Post::all();
+        $posts=Post::with(['comentario','persona'])->get();
         return response()->json($posts);
     }
 
