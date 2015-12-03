@@ -14,9 +14,9 @@ class personaTableSeeder extends Seeder
     	//DB::table('posts')->delete();
     	//DB::table('personas')->truncate();
     	factory(App\Persona::class)->create([
-        	'nombre' => "Henrry",
-        	'paterno' => "Salinas",
-        	'materno' => "Humerez",
+        	'nombre' => "Anonimo",
+        	'paterno' => "Anonimo",
+        	'materno' => "anonimo",
         	'email' => "000@hihi.com",
         	]);
 

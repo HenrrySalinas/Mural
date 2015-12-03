@@ -18,7 +18,7 @@ class postTableSeeder extends Seeder
 		//DB::table('sensors')->truncate();
 		//DB::statement('SET FOREIGN_KEY_CHECKS=1;');
 
-        factory(App\Post::class, 50)->create();
+        factory(App\Post::class,1)->create();
 
        /* $user = factory(App\Persona::class,25)->create();
 		$post = factory(App\Post::class,50)->create();
