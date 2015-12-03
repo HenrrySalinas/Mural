@@ -31,7 +31,7 @@ class postController extends Controller
      */
     public function index()
     {
-        $posts=Post::with(['comentario','persona'])->get();
+        $posts=Post::with(['comentario','persona'])->orderBy('posts.id','desc')->get();
         return response()->json($posts);
     }
 
@@ -67,7 +67,13 @@ class postController extends Controller
      */
     public function show($id)
     {
-        return response()->json($this->post);
+        
+        $post=$this->post;
+        $persona=$this->post->persona;//linea necesaria para mostrar  a la persona
+        $comentarios=$this->post->comentario;//linea necesaria para mostrar los comentarios
+        return response()->json([
+                $post
+            ]);
     }
 
     /**
